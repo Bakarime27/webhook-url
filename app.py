@@ -2,6 +2,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+@app.route("/")
+def index():
+    return "Welcome to the url used as webhook receiver!"
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.json
