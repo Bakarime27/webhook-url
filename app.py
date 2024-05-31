@@ -19,7 +19,11 @@ def webhook():
 @app.route('/show_json', methods=['GET'])
 def show_json():
     global received_data
-    return jsonify(received_data)
+    # Copy the current data to return it
+    data_to_return = received_data.copy()
+    # Clear the received_data dictionary
+    received_data.clear()
+    return jsonify(data_to_return)
 
 if __name__ == '__main__':
     app.run(port=5000)
