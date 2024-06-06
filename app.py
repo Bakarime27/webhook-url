@@ -13,7 +13,7 @@ def index():
 def webhook():
     data = request.json
     data_queue.put(data)
-    return '', 200
+    return "Request succeeded", 200
 
 @app.route('/show_json', methods=['GET'])
 def show_json():
