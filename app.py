@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from queue import Queue
 import threading
+import time
 
 app = Flask(__name__)
 data_queue = Queue()
@@ -17,6 +18,7 @@ def webhook():
 
 @app.route('/show_json', methods=['GET'])
 def show_json():
+    time.sleep(20)
     if data_queue.empty():
         return jsonify({"message": "No data available"}), 200
     else:
