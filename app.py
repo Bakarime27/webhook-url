@@ -25,7 +25,7 @@ def webhook():
 def show_json():
     if not data_event.is_set():
         # Wait for data to become available
-        data_event.wait(timeout=25)  # Timeout after 25 seconds to avoid infinite wait
+        data_event.wait(timeout=60)  # Timeout after 25 seconds to avoid infinite wait
     
     if data_queue.empty():
         return jsonify({"message": "No data available"}), 200
