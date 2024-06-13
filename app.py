@@ -18,7 +18,7 @@ def webhook():
 
 @app.route('/show_json', methods=['GET'])
 def show_json():
-    time.sleep(60)
+    time.sleep(30)
     if data_queue.empty():
         return jsonify({"message": "No data available"}), 200
     else:
